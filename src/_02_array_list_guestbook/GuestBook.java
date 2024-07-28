@@ -1,12 +1,99 @@
 package _02_array_list_guestbook;
 
-public class GuestBook {
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+
+import javax.swing.*;
+
+public class GuestBook implements MouseListener {
 	// Create a GUI with two buttons. One button reads "Add Name" and the other button reads "View Names". 
-	// When the add name button is clicked, display an input dialog that asks the user to enter a name. Add
-	// that name to an ArrayList. When the "View Names" button is clicked, display a message dialog that displays
-	// all the names added to the list. Format the list as follows:
-	// Guest #1: Bob Banders
-	// Guest #2: Sandy Summers
-	// Guest #3: Greg Ganders
-	// Guest #4: Donny Doners
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JButton add = new JButton();
+	JButton view = new JButton();
+	
+	ArrayList<String> guests = new ArrayList<String>();
+	
+	public void setup() {
+		
+		frame.setVisible(true);
+		frame.setSize(200, 100);
+		frame.add(panel);
+		
+		panel.add(add);
+		panel.add(view);
+		
+		add.setText("Add name");
+		add.addMouseListener(this);
+		
+		view.setText("View names");
+		view.addMouseListener(this);
+			
+	}
+	
+	public static void main(String[] args) {
+		GuestBook b = new GuestBook();
+	while(true) {
+		b.setup();
+	}
+	
+		
+
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// When the add name button is clicked, display an input dialog that asks the user to enter a name. Add
+		// that name to an ArrayList. When the "View Names" button is clicked, display a message dialog that displays
+		// all the names added to the list. Format the list as follows:
+		// Guest #1: Bob Banders
+		// Guest #2: Sandy Summers
+		// Guest #3: Greg Ganders
+		// Guest #4: Donny Doners
+		
+		if(e.getSource() == add) {
+		String people =	JOptionPane.showInputDialog("who would you like to add to your list");
+				guests.add(people);
+			}
+		}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 }
